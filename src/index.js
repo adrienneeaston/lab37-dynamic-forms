@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
 
-import SettingsContext from './context/settings.js';
+// import SettingsContext from './context/settings.js';
 
 import App from './app.js';
 
-class Main extends React.Component {
-  render() {
-    return (
-      <SettingsContext>
-        <App />
-      </SettingsContext>
-    );
-  }
+import createStore from "./store/";
+const store = createStore();
+
+function Main() {}
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 }
 
 const rootElement = document.getElementById('root');
